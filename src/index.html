@@ -2,10 +2,10 @@
     <head>
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Simplest Frame by dTech" />
-        <meta property="og:url" content="https://dtech.vision/simpleframe/" />
+        <meta property="og:url" content="https://simpleframe.orbiter.website" />
         <meta
             property="og:image"
-            content="https://dtech.vision/simpleframe/opengraph.png"
+            content="https://simpleframe.orbiter.website/opengraph.png"
         />
         <meta
             property="og:description"
@@ -15,14 +15,14 @@
             property="fc:frame"
             content='{
                 "version": "next",
-                "imageUrl": "https://dtech.vision/frame.png",
+                "imageUrl": "https://simpleframe.orbiter.website/frame.png",
                 "button": {
                     "title": "THE Farcaster product studio",
                     "action": {
                         "type": "launch_frame",
                         "name": "Learn Farcaster",
-                        "url": "https://dtech.vision/farcaster/",
-                        "splashImageUrl": "https://samuelhuber.de/splash.png",
+                        "url": "https://simpleframe.orbiter.website",
+                        "splashImageUrl": "https://simpleframe.orbiter.website/splash.png",
                         "splashBackgroundColor": "#f7f7f7"
                     }
                 }
@@ -33,7 +33,34 @@
     <body>
         <script src="https://cdn.jsdelivr.net/npm/@farcaster/frame-sdk/dist/index.min.js"></script>
         <script>
-            frame.sdk.actions.ready();
+        try {
+                frame.sdk.actions.ready();
+            } catch (error) {
+                console.error('Error in ready():', error);
+            }
+
+            window.onload = async function() {
+                try {
+                    await frame.sdk.actions.addFrame();
+                } catch (error) {
+                    console.log('Initial addFrame rejected:', error);
+                }
+
+                const button = document.getElementById('addFrame');
+                if (button) {
+                    button.addEventListener('click', async () => {
+                        try {
+                            const result = await frame.sdk.actions.addFrame();
+                            if(!result.added){
+                              console.log(result)
+                              return
+                            }
+                        } catch (error) {
+                            console.log('Button click addFrame rejected:', error);
+                        }
+                    });
+                }
+            }
         </script>
         <div
             style="
@@ -76,6 +103,32 @@
             >
                 here
             </a>
+        </div>
+        <div
+            style="
+                font-family: Arial, sans-serif;
+                max-width: 800px;
+                margin: 50px auto;
+                padding: 30px;
+                background-color: #f8f9fa;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            "
+        >
+
+            <button
+              id="addFrame"
+              style="
+                padding: 0.5rem 1.75rem;
+                background: #3498db;
+                color: white;
+                border-radius: 10px;
+                font-size: 18px;
+                border: none;
+                cursor: pointer;
+              "
+            >Add Frame</button>
         </div>
     </body>
 </html>

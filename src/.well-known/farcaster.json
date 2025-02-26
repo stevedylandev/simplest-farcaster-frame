@@ -1,0 +1,17 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjYwMjMsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHg0NTYxMzExNjFmODNDN0Q3ZkRBMTViMzJhNWY3QzIxRkQ0RTI3RTk2In0",
+    "payload": "eyJkb21haW4iOiJzaW1wbGVmcmFtZS5vcmJpdGVyLndlYnNpdGUifQ",
+    "signature": "MHg3NjY5NWU5ZTViMzEzZTFjOWFmNmVmNGUyMzVmZTJkOGFlZWJkZjMzODUyM2I2ZjRlMDg5NGJmMmYyZGZmMjFhNjIyYjk3YmM0MzBkMWZiYzhkMTFkZDJjMzA1MzM5OTU2NTQ0ZGE0NDJjYmJjNjUxMWZmMjljY2UyNTE2ZmNjZjFi"
+  },
+  "frame": {
+    "version": "1",
+    "name": "Example Frame",
+    "iconUrl": "https://simpleframe.orbiter.website/icon.png",
+    "homeUrl": "https://simpleframe.orbiter.website",
+    "imageUrl": "https://simpleframe.orbiter.website/frame.png",
+    "buttonTitle": "Check this out",
+    "splashImageUrl": "https://simpleframe.orbiter.website/splash.png",
+    "splashBackgroundColor": "#eeccff"
+  }
+}
